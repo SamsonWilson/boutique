@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 # Create your models here.
 from django.db import models
@@ -19,6 +20,8 @@ class Produit(models.Model):
     categorie = models.ForeignKey(Categorie, on_delete=models.CASCADE)
     stock = models.IntegerField(default=0)
 
+
+   
     def __str__(self):
         return self.nom
 

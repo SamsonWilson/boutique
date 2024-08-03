@@ -3,6 +3,9 @@ from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 from .views import CategorieViewSet, ProduitViewSet, AvisViewSet, PanierViewSet, CommandeViewSet, NotificationViewSet, PromotionViewSet, AdresseLivraisonViewSet
 
+
+
+
 router = DefaultRouter()
 router.register(r'categories', CategorieViewSet)
 router.register(r'produits', ProduitViewSet)

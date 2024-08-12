@@ -1,5 +1,9 @@
 /*import 'package:android_ios_app/core/routes/app_routes.dart';
 import 'package:android_ios_app/core/routes/on_generate_route.dart';*/
+<<<<<<< HEAD
+import 'package:android_ios_app/screens/Produit.detail.dart';
+=======
+>>>>>>> 4cd1d19baf82a1b03fa244eb0d4b1e3913bdca20
 import 'package:android_ios_app/screens/produit.screen.dart';
 import 'package:flutter/material.dart';
 
@@ -157,6 +161,10 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       routes: {
         ProduitScreen.routeName: (context) => const ProduitScreen(),
+<<<<<<< HEAD
+        ProduitDTScreen.routeName:(context)=> const ProduitDTScreen(),
+=======
+>>>>>>> 4cd1d19baf82a1b03fa244eb0d4b1e3913bdca20
       },
       initialRoute: ProduitScreen.routeName,
     );

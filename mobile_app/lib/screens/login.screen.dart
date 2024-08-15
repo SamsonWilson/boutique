@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/common/Logo.widget.dart';
+import 'package:mobile_app/screens/inscription.screen.dart';
 // import 'package:mobile_app/screens/inscription.screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -10,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _InscriptionScreenState extends State<LoginScreen> {
+  final _formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,24 +20,12 @@ class _InscriptionScreenState extends State<LoginScreen> {
         title: Text("Connexion"),
       ),
       body: SafeArea(
-        child: SafeArea(
+        child: Form(
+          key: _formkey,
           child: ListView(
             children: [
-              Center(
-                child: Container(
-                  height: 200,
-                  width: 150,
-                  decoration: const BoxDecoration(
-                    color: Colors.amberAccent, shape: BoxShape.circle,
-                    // image: DecorationImage(
-                    //   image: AssetImage('assets/images/app_logo.png'),
-                    // ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
+              const LogoWidget(),
+              const SizedBox(height: 20),
               const Text(
                 'welcome',
                 style: TextStyle(
@@ -51,10 +42,10 @@ class _InscriptionScreenState extends State<LoginScreen> {
                 style: TextStyle(fontSize: 15, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
+                child: TextFormField(
                   decoration: const InputDecoration(
                     label: Text('Email'),
                     hintText: 'Email',
@@ -62,10 +53,10 @@ class _InscriptionScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: TextField(
+                child: TextFormField(
                   decoration: const InputDecoration(
                     label: Text('Password'),
                     hintText: 'Entrer le Mot de Passe',
@@ -95,8 +86,9 @@ class _InscriptionScreenState extends State<LoginScreen> {
                   const Text('J\'ai pas de compte'),
                   TextButton(
                     onPressed: () {
-                      Navigator.pop(context);
-                      // Navigator.pushNamed(context, InscriptionScreen.routeName);
+                      // Navigator.pop(context);
+
+                      Navigator.pushNamed(context, InscriptionScreen.routeName);
                     },
                     child: const Text('Creer un comptes'),
                   )

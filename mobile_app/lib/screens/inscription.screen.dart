@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/common/Logo.widget.dart';
 import 'package:mobile_app/screens/login.screen.dart';
 
 class InscriptionScreen extends StatefulWidget {
@@ -20,18 +21,7 @@ class _InscriptionScreenState extends State<InscriptionScreen> {
         child: SafeArea(
           child: ListView(
             children: [
-              Center(
-                child: Container(
-                  height: 200,
-                  width: 150,
-                  decoration: const BoxDecoration(
-                    color: Colors.amberAccent, shape: BoxShape.circle,
-                    // image: DecorationImage(
-                    //   image: AssetImage('assets/images/app_logo.png'),
-                    // ),
-                  ),
-                ),
-              ),
+              const LogoWidget(),
               const SizedBox(
                 height: 20,
               ),

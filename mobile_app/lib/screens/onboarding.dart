@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mobile_app/screens/inscription.screen.dart';
 import 'package:mobile_app/screens/login.screen.dart';
 
@@ -18,13 +19,17 @@ class _OnboardingState extends State<Onboarding> {
     (
       ' A shop in pbdvbfvbvn v sv nsdv n sdvn snv ',
       'hjkbchbehkfbkejbfbdfbfdbkjdfj',
-      Colors.deepOrange
+      "app_logo.png"
     ),
-    (' A shop in pb ', 'hjkbchbehkfbkejbfbdfbfdbkjdfj', Colors.amber),
+    (
+      ' A shop in pb ',
+      'hjkbchbehkfbkejbfbdfbfdbkjdfj',
+      "profile_page_background.png"
+    ),
     (
       ' A shop in pbdvbfvbvn v sv nsdv n sdvn snv ',
       'hjkbchbehkfbkejbfbdfbfdbkjdfj',
-      Colors.accents
+      "sans.jpeg"
     ),
   ];
 
@@ -55,20 +60,24 @@ class _OnboardingState extends State<Onboarding> {
                         _pagesContents[index];
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Container(
-                          height: 500,
-                          width: double.infinity,
-                          color: Colors.deepOrange,
-                        ),
+                            height: 500,
+                            width: double.infinity,
+                            child: Image.asset(
+                              "assets/images/$imagecolore",
+                              fit: BoxFit.contain,
+                            )),
                         Text(
                           title,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                               fontSize: 30, color: Colors.deepPurple),
                         ),
                         Text(
                           description,
+                          textAlign: TextAlign.center,
                           style: const TextStyle(
                               fontSize: 10, color: Colors.black),
                         ),

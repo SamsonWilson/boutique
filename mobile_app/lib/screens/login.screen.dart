@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/common/Logo.widget.dart';
+import 'package:mobile_app/screens/homePage.screen.dart';
 import 'package:mobile_app/screens/inscription.screen.dart';
+import 'package:flutter/src/material/text_form_field.dart';
+import 'package:mobile_app/services/auth.service.dart';
 // import 'package:mobile_app/screens/inscription.screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,6 +16,19 @@ class LoginScreen extends StatefulWidget {
 
 class _InscriptionScreenState extends State<LoginScreen> {
   final _formkey = GlobalKey<FormState>();
+  final _emailContoller = TextEditingController();
+  final _passwordContoller = TextEditingController();
+
+  @override
+  void initState() {
+     _emailContoller.text = 'fifi';
+    _passwordContoller.text = 'Ff@12345678';
+    // kpat@0987
+    // _emailContoller.text = 'fifi';
+    // _passwordContoller.text = 'Ff@12345678';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,6 +62,13 @@ class _InscriptionScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
+                  controller: _emailContoller,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'svp entrer votre Email';
+                    }
+                    return null;
+                  },
                   decoration: const InputDecoration(
                     label: Text('Email'),
                     hintText: 'Email',
@@ -57,6 +80,13 @@ class _InscriptionScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: TextFormField(
+                  controller: _passwordContoller,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'svp entrer votre Email';
+                    }
+                    return null;
+                  },
                   decoration: const InputDecoration(
                     label: Text('Password'),
                     hintText: 'Entrer le Mot de Passe',
@@ -68,7 +98,25 @@ class _InscriptionScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (_formkey.currentState!.validate()) {
+                      authService.LoginScreen(
+                        _emailContoller.text,
+                        _passwordContoller.text,
+                      ).then((value) {
+                        if (value) {
+                          Navigator.pushReplacementNamed(
+                              context, HomeScreen.routeName);
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('invalid credentials'),
+                            ),
+                          );
+                        }
+                      });
+                    }
+                  },
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 57),
                       backgroundColor: Colors.deepOrange,

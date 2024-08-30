@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_app/screens/homePage.screen.dart';
 import 'package:mobile_app/screens/inscription.screen.dart';
 import 'package:mobile_app/screens/login.screen.dart';
 import 'package:mobile_app/screens/onboarding.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         Onboarding.routeName: (context) => const Onboarding(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         InscriptionScreen.routeName: (context) => const InscriptionScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
       },
       initialRoute: SlashScreen.routeName,
     );

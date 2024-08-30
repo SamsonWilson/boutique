@@ -14,6 +14,15 @@ class _SlashScreenState extends State<SlashScreen> {
   @override
   void initState() {
     super.initState();
+
+// authService.check().then.((value){
+//       if(value){
+//         Navigator.pushReplacementName(context, HomeScreen.routeName);
+//       }else{
+//         Navigator.pushReplacementNamed(context, Onboarding.routeName);
+//       }
+//     });
+
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, Onboarding.routeName);
     });

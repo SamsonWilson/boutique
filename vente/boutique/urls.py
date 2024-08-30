@@ -18,4 +18,5 @@ router.register(r'adresses-livraison', AdresseLivraisonViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    # path('api/accounts/login/', views.login_view, name='login'),
 ]

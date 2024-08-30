@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
         automaticallyImplyLeading: false,
         title: Text('Accueil'),
       ),
-      body: Container(color: Colors.blue),
+      body: Container(color: const Color.fromARGB(255, 243, 131, 33)),
     );
   }
 }
